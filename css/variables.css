@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --bg-primary: #0a1628;
+  --bg-secondary: #0f1f35;
+  --bg-card: #ffffff;
+  --border-metallic: #3a4a5c;
+  --border-light: #5a6a7c;
+  --cyan: #5ce0d2;
+  --cyan-bright: #7df3e7;
+  --cyan-dim: #2a5a54;
+  --cyan-glow: rgba(92, 224, 210, 0.4);
+  --text-primary: #ffffff;
+  --text-secondary: #8a9ab0;
+  --text-dark: #1a1a2e;
+  --text-button: #1a2a3a;
+  --grid-line: rgba(92, 224, 210, 0.06);
+  --grid-line-bright: rgba(92, 224, 210, 0.12);
+
+  /* Typography */
+  --font-heading: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Sizing */
+  --logo-small: 60px;
+  --logo-large: 260px;
+  --btn-height: 52px;
+  --nav-height: 80px;
+  --border-radius: 6px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

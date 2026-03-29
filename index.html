@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>OHANA HQ</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ==================== SCREEN 0: SPLASH ==================== -->
+  <section class="screen active" data-screen="0" data-type="splash">
+    <div class="screen-content splash-content">
+      <img src="assets/logo.png" alt="OHANA" class="splash-logo">
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 1: OHANA AGENT NETWORK (Video 1) ==================== -->
+  <section class="screen" data-screen="1" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Ohana Agent Network</h1>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/1-ohana.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 2: WELCOME AGENT (Video 2) ==================== -->
+  <section class="screen" data-screen="2" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Welcome Agent</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/2-welcome-agent.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 3: MISSION 1 VIDEO ==================== -->
+  <section class="screen" data-screen="3" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 1</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/3-mission-1.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 4: MISSION 1 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="4" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 1</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Inspect and log the number of living plant columns around HQ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 5: MISSION 1 TASK ==================== -->
+  <section class="screen" data-screen="5" data-type="task" data-mission="1">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 1</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text">Agent, how many columns did you investigate?</p>
+        <input type="text" class="input-field" data-answer="1" inputmode="numeric" autocomplete="off" placeholder="">
+        <button class="btn btn--submit" data-submit="1">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="1"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 6: MISSION 1 COMPLETE ==================== -->
+  <section class="screen" data-screen="6" data-type="confirmation" data-mission="1">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 1</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- ==================== SCREEN 7: MISSION 2 VIDEO ==================== -->
+  <section class="screen" data-screen="7" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 2</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/4-mission-2.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 8: MISSION 2 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="8" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 2</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Find the music area and look for the instrument. What's the missing word?</p>
+        <p class="card-text" style="margin-top: 12px; font-size: 20px;">_______ &amp; Sons</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 9: MISSION 2 TASK ==================== -->
+  <section class="screen" data-screen="9" data-type="task" data-mission="2">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 2</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text">What's the missing word?</p>
+        <input type="text" class="input-field" data-answer="2" autocomplete="off" placeholder="">
+        <button class="btn btn--submit" data-submit="2">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="2"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 10: MISSION 2 COMPLETE ==================== -->
+  <section class="screen" data-screen="10" data-type="confirmation" data-mission="2">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 2</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- ==================== SCREEN 11: MISSION 3 VIDEO ==================== -->
+  <section class="screen" data-screen="11" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 3</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/5-mission-3.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 12: MISSION 3 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="12" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 3</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Find the coffee bar and rearrange the posters in the correct order</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 13: MISSION 3 TASK (DRAG & DROP) ==================== -->
+  <section class="screen" data-screen="13" data-type="task" data-mission="3">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 3</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text" style="font-size: 14px; margin-bottom: 12px;">Drag to arrange in the correct order</p>
+        <div class="drag-list" id="drag-list">
+          <div class="drag-item" data-value="Sustainability">
+            <div class="drag-handle"><span></span><span></span><span></span></div>
+            Sustainability
+          </div>
+          <div class="drag-item" data-value="Trust">
+            <div class="drag-handle"><span></span><span></span><span></span></div>
+            Trust
+          </div>
+          <div class="drag-item" data-value="Equality">
+            <div class="drag-handle"><span></span><span></span><span></span></div>
+            Equality
+          </div>
+          <div class="drag-item" data-value="Customer Success">
+            <div class="drag-handle"><span></span><span></span><span></span></div>
+            Customer Success
+          </div>
+          <div class="drag-item" data-value="Innovation">
+            <div class="drag-handle"><span></span><span></span><span></span></div>
+            Innovation
+          </div>
+        </div>
+        <button class="btn btn--submit" data-submit="3" style="margin-top: 12px;">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="3"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 14: MISSION 3 COMPLETE ==================== -->
+  <section class="screen" data-screen="14" data-type="confirmation" data-mission="3">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 3</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- ==================== SCREEN 15: MISSION 4 VIDEO ==================== -->
+  <section class="screen" data-screen="15" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 4</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/6-mission-4.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 16: MISSION 4 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="16" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 4</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Look around for the Ohana Floor signs and complete the phrases</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 17: MISSION 4 TASK (DUAL INPUT) ==================== -->
+  <section class="screen" data-screen="17" data-type="task" data-mission="4">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 4</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text" style="font-size: 14px;">Complete the two phrases from the Ohana Floor signs</p>
+        <div class="dual-input">
+          <span class="input-label">Phrase 1</span>
+          <input type="text" class="input-field" data-answer="4a" autocomplete="off" placeholder="">
+          <span class="input-label">Phrase 2</span>
+          <input type="text" class="input-field" data-answer="4b" autocomplete="off" placeholder="">
+        </div>
+        <button class="btn btn--submit" data-submit="4" style="margin-top: 8px;">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="4"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 18: MISSION 4 COMPLETE ==================== -->
+  <section class="screen" data-screen="18" data-type="confirmation" data-mission="4">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 4</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- ==================== SCREEN 19: MISSION 5 VIDEO ==================== -->
+  <section class="screen" data-screen="19" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 5</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/7-mission-5.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 20: MISSION 5 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="20" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 5</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Your previous answers: Steinway, All Are Welcome, Blaze Your Trail</p>
+        <p class="card-text" style="margin-top: 12px;">Where did the introducer go?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 21: MISSION 5 TASK ==================== -->
+  <section class="screen" data-screen="21" data-type="task" data-mission="5">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 5</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text">Where did the introducer go?</p>
+        <input type="text" class="input-field" data-answer="5" autocomplete="off" placeholder="">
+        <button class="btn btn--submit" data-submit="5">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="5"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 22: MISSION 5 COMPLETE (FINAL) ==================== -->
+  <section class="screen" data-screen="22" data-type="confirmation" data-mission="5">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 5</h1>
+      </div>
+      <h2 class="mission-complete-text">All Missions Complete</h2>
+      <p style="color: var(--cyan); font-size: 16px; text-align: center; letter-spacing: 1px; z-index: 2; position: relative;">
+        Congratulations, Agent. You have proven yourself worthy of the Ohana.
+      </p>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+</div>
+
+<!-- Navigation Bar -->
+<nav class="nav-bar">
+  <button class="btn btn--back" id="btn-back">Back</button>
+  <button class="btn" id="btn-next">Next</button>
+</nav>
+
+<script src="js/matrix.js"></script>
+<script src="js/video.js"></script>
+<script src="js/drag-drop.js"></script>
+<script src="js/answers.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

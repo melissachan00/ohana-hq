@@ -1,0 +1,60 @@
+/* Screen transitions */
+.screen {
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+/* Shake animation for wrong answers */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+/* Glow pulse on NEXT when enabled */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--cyan-glow), inset 0 1px 0 rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 0 20px var(--cyan-glow), 0 0 30px rgba(92,224,210,0.2), inset 0 1px 0 rgba(255,255,255,0.3); }
+}
+
+.btn.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Success flash */
+@keyframes success-flash {
+  0% { background-color: var(--bg-card); }
+  50% { background-color: rgba(92, 224, 210, 0.15); }
+  100% { background-color: var(--bg-card); }
+}
+
+.card.success {
+  animation: success-flash 0.6s ease;
+}
+
+/* Fade in for mission complete text */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mission-complete-text {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Matrix canvas fade */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.matrix-canvas {
+  animation: fade-in 1s ease;
+}
