@@ -157,6 +157,7 @@
   color: #666;
   text-transform: uppercase;
   margin-bottom: var(--space-md);
+  text-wrap: balance;
 }
 
 .card-text {
@@ -166,6 +167,7 @@
   line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-wrap: balance;
 }
 
 /* ===== INPUT FIELDS ===== */
@@ -210,6 +212,14 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
+}
+
+.dual-input .input-hint {
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* ===== DRAG AND DROP (Mission 3) ===== */
@@ -277,6 +287,179 @@
   min-height: 42px;
 }
 
+/* ===== MISSION DECODE PUZZLE ===== */
+
+.decode-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.decode-section-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.clue-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 340px;
+}
+
+.clue-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 12px 8px;
+  text-align: center;
+  border: 2px solid var(--border-metallic);
+}
+
+.clue-words {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0 10px;
+}
+
+.clue-word {
+  display: inline-flex;
+  gap: 0;
+}
+
+.clue-word-plain {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+  padding-bottom: 26px;
+}
+
+.letter-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+}
+
+.letter-col .letter {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  line-height: 1;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-col .letter.bold {
+  font-weight: 900;
+  color: #000;
+}
+
+.letter-col .num-slot {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.num-box {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #666;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #444;
+  background: #f0f0f0;
+}
+
+.location-section {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.location-label {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.location-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.location-box {
+  width: 32px;
+  height: 40px;
+  border: 2px solid var(--border-light);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  text-align: center;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  padding: 0;
+  outline: none;
+  caret-color: var(--cyan);
+}
+
+.location-box:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.location-box.correct {
+  border-color: var(--cyan);
+  background: rgba(92, 224, 210, 0.15);
+}
+
+.location-box.error {
+  border-color: #ff4444;
+  animation: shake 0.4s ease;
+}
+
+.puzzle-feedback {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  min-height: 20px;
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+.decode-screen .screen-content {
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+}
+
 /* ===== MISSION COMPLETE ===== */
 
 .mission-complete-text {
@@ -287,6 +470,7 @@
   color: var(--cyan);
   text-shadow: 0 0 20px var(--cyan-glow);
   text-align: center;
+  text-wrap: balance;
   z-index: 2;
   position: relative;
 }

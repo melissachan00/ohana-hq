@@ -1,12 +1,12 @@
 /**
- * Answer validation for all 5 missions.
+ * Answer validation for all 6 missions.
  * Each validate function returns true/false.
  */
 const Answers = (() => {
   const correctAnswers = {
     1: '12',
     2: 'steinway',
-    5: 'smith',
+    6: 'smith',
   };
 
   const correctOrder3 = [
@@ -22,13 +22,16 @@ const Answers = (() => {
     b: 'blaze your trail',
   };
 
+  const DECODE_ANSWER = 'STAIRWELL';
+
   function validate(mission) {
     switch (mission) {
       case 1: return validateText(1);
       case 2: return validateText(2);
       case 3: return validateDragOrder();
       case 4: return validateDualInput();
-      case 5: return validateText(5);
+      case 5: return validateDecode();
+      case 6: return validateText(6);
       default: return false;
     }
   }
@@ -55,5 +58,11 @@ const Answers = (() => {
     return a === correctPhrases4.a && b === correctPhrases4.b;
   }
 
-  return { validate };
+  function validateDecode() {
+    const boxes = document.querySelectorAll('.location-box');
+    const attempt = Array.from(boxes).map(b => b.value.toUpperCase()).join('');
+    return attempt === DECODE_ANSWER;
+  }
+
+  return { validate, DECODE_ANSWER };
 })();

@@ -1,6 +1,6 @@
 /**
  * Video playback lifecycle management.
- * Handles autoplay, tap-to-play overlay, and pause on leave.
+ * Tap-to-play with overlay, pause on screen leave.
  */
 const Video = (() => {
   function initOverlays() {
@@ -10,41 +10,37 @@ const Video = (() => {
         const video = container.querySelector('video');
         overlay.classList.add('hidden');
         video.play().catch(() => {
-          // If play fails even on tap, show overlay again
           overlay.classList.remove('hidden');
         });
       });
     });
+
+    // When video ends, show overlay again so user can replay
+    document.querySelectorAll('.video-container video').forEach(video => {
+      video.addEventListener('ended', () => {
+        const overlay = video.parentElement.querySelector('.video-overlay');
+        if (overlay) overlay.classList.remove('hidden');
+        video.currentTime = 0;
+      });
+    });
   }
 
-  function playOnScreen(screen) {
+  function enterScreen(screen) {
     const video = screen.querySelector('video');
     if (!video) return;
 
     const overlay = screen.querySelector('.video-overlay');
 
-    // Try autoplay
-    const playPromise = video.play();
-    if (playPromise) {
-      playPromise.then(() => {
-        // Autoplay succeeded, hide overlay
-        if (overlay) overlay.classList.add('hidden');
-      }).catch(() => {
-        // Autoplay blocked — show tap overlay
-        if (overlay) overlay.classList.remove('hidden');
-      });
-    }
+    // Reset: show overlay, rewind if needed
+    if (overlay) overlay.classList.remove('hidden');
+    video.load(); // ensure the video is ready to play on tap
   }
 
-  function pauseOnScreen(screen) {
+  function leaveScreen(screen) {
     const video = screen.querySelector('video');
     if (!video) return;
     video.pause();
   }
 
-  function pauseAll() {
-    document.querySelectorAll('video').forEach(v => v.pause());
-  }
-
-  return { initOverlays, playOnScreen, pauseOnScreen, pauseAll };
+  return { initOverlays, enterScreen, leaveScreen };
 })();

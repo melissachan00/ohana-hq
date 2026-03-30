@@ -150,7 +150,8 @@
       </div>
       <div class="card">
         <p class="card-label">Mission Assignment</p>
-        <p class="card-text">Find the music area and look for the instrument. What's the missing word?</p>
+        <p class="card-text">Find the music area and look for the instrument</p>
+        <p class="card-text" style="margin-top: 12px;">What's the missing word?</p>
         <p class="card-text" style="margin-top: 12px; font-size: 20px;">_______ &amp; Sons</p>
       </div>
     </div>
@@ -227,7 +228,7 @@
       </div>
       <div class="card">
         <p class="card-label">Mission Task</p>
-        <p class="card-text" style="font-size: 14px; margin-bottom: 12px;">Drag to arrange in the correct order</p>
+        <p class="card-text" style="font-size: 14px; margin-bottom: 12px;">Drag to Arrange the Posters in the Correct Order from Right to Left</p>
         <div class="drag-list" id="drag-list">
           <div class="drag-item" data-value="Sustainability">
             <div class="drag-handle"><span></span><span></span><span></span></div>
@@ -296,7 +297,7 @@
       </div>
       <div class="card">
         <p class="card-label">Mission Assignment</p>
-        <p class="card-text">Look around for the Ohana Floor signs and complete the phrases</p>
+        <p class="card-text">Find the signs for the Ohana Floor, complete the phrases</p>
       </div>
     </div>
   </section>
@@ -310,11 +311,12 @@
       </div>
       <div class="card">
         <p class="card-label">Mission Task</p>
-        <p class="card-text" style="font-size: 14px;">Complete the two phrases from the Ohana Floor signs</p>
         <div class="dual-input">
-          <span class="input-label">Phrase 1</span>
+          <span class="input-label">Ohana Floor</span>
+          <span class="input-hint">A___ A__ W_____</span>
           <input type="text" class="input-field" data-answer="4a" autocomplete="off" placeholder="">
-          <span class="input-label">Phrase 2</span>
+          <span class="input-label" style="margin-top: 8px;">Ohana Floor</span>
+          <span class="input-hint">B___ Y___ T____</span>
           <input type="text" class="input-field" data-answer="4b" autocomplete="off" placeholder="">
         </div>
         <button class="btn btn--submit" data-submit="4" style="margin-top: 8px;">Submit Report</button>
@@ -363,40 +365,175 @@
       </div>
       <div class="card">
         <p class="card-label">Mission Assignment</p>
-        <p class="card-text">Your previous answers: Steinway, All Are Welcome, Blaze Your Trail</p>
-        <p class="card-text" style="margin-top: 12px;">Where did the introducer go?</p>
+        <p class="card-text">Solve the puzzle to find the intruder</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SCREEN 21: MISSION 5 TASK ==================== -->
-  <section class="screen" data-screen="21" data-type="task" data-mission="5">
+  <!-- ==================== SCREEN 21: MISSION 5 DECODE PUZZLE ==================== -->
+  <section class="screen decode-screen" data-screen="21" data-type="task" data-mission="5">
     <div class="screen-content">
       <div class="screen-header">
         <img src="assets/logo.png" alt="OHANA" class="header-logo">
-        <h1 class="screen-title">Mission 5</h1>
+        <h1 class="decode-title">Mission Decode</h1>
       </div>
-      <div class="card">
-        <p class="card-label">Mission Task</p>
-        <p class="card-text">Where did the introducer go?</p>
-        <input type="text" class="input-field" data-answer="5" autocomplete="off" placeholder="">
-        <button class="btn btn--submit" data-submit="5">Submit Report</button>
+
+      <p class="decode-section-label">Clues</p>
+
+      <div class="clue-cards">
+
+        <!-- Clue 1: STEINWAY → S(1) T(2) -->
+        <div class="clue-card">
+          <div class="clue-words">
+            <div class="clue-word">
+              <div class="letter-col"><span class="letter bold">S</span><div class="num-slot"><div class="num-box">1</div></div></div>
+              <div class="letter-col"><span class="letter bold">T</span><div class="num-slot"><div class="num-box">2</div></div></div>
+              <div class="letter-col"><span class="letter">E</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">I</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">N</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">W</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">A</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">Y</span><div class="num-slot"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clue 2: ALL ARE WELCOME → L(8) L(9) ... W(6) E(7) -->
+        <div class="clue-card">
+          <div class="clue-words">
+            <div class="clue-word">
+              <div class="letter-col"><span class="letter">A</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter bold">L</span><div class="num-slot"><div class="num-box">8</div></div></div>
+              <div class="letter-col"><span class="letter bold">L</span><div class="num-slot"><div class="num-box">9</div></div></div>
+            </div>
+            <span class="clue-word-plain">ARE</span>
+            <div class="clue-word">
+              <div class="letter-col"><span class="letter bold">W</span><div class="num-slot"><div class="num-box">6</div></div></div>
+              <div class="letter-col"><span class="letter bold">E</span><div class="num-slot"><div class="num-box">7</div></div></div>
+              <div class="letter-col"><span class="letter">L</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">C</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">O</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">M</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter">E</span><div class="num-slot"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clue 3: BLAZE YOUR TRAIL → R(5) A(3) I(4) -->
+        <div class="clue-card">
+          <div class="clue-words">
+            <span class="clue-word-plain">BLAZE YOUR</span>
+            <div class="clue-word">
+              <div class="letter-col"><span class="letter">T</span><div class="num-slot"></div></div>
+              <div class="letter-col"><span class="letter bold">R</span><div class="num-slot"><div class="num-box">5</div></div></div>
+              <div class="letter-col"><span class="letter bold">A</span><div class="num-slot"><div class="num-box">3</div></div></div>
+              <div class="letter-col"><span class="letter bold">I</span><div class="num-slot"><div class="num-box">4</div></div></div>
+              <div class="letter-col"><span class="letter">L</span><div class="num-slot"></div></div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <p class="feedback" data-feedback="5"></p>
+
+      <!-- Location answer -->
+      <div class="location-section">
+        <p class="location-label">Location</p>
+        <div class="location-boxes" id="location-boxes">
+          <input type="text" class="location-box" maxlength="1" data-pos="1" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="2" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="3" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="4" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="5" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="6" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="7" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="8" inputmode="text" autocomplete="off">
+          <input type="text" class="location-box" maxlength="1" data-pos="9" inputmode="text" autocomplete="off">
+        </div>
+        <p class="puzzle-feedback" id="puzzle-feedback"></p>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== SCREEN 22: MISSION 5 COMPLETE (FINAL) ==================== -->
+  <!-- ==================== SCREEN 22: MISSION 5 COMPLETE ==================== -->
   <section class="screen" data-screen="22" data-type="confirmation" data-mission="5">
     <div class="screen-content">
       <div class="screen-header">
         <img src="assets/logo.png" alt="OHANA" class="header-logo">
         <h1 class="screen-title">Mission 5</h1>
       </div>
-      <h2 class="mission-complete-text">All Missions Complete</h2>
-      <p style="color: var(--cyan); font-size: 16px; text-align: center; letter-spacing: 1px; z-index: 2; position: relative;">
-        Congratulations, Agent. You have proven yourself worthy of the Ohana.
+      <h2 class="mission-complete-text">Mission Complete</h2>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- ==================== SCREEN 23: MISSION 6 VIDEO ==================== -->
+  <section class="screen" data-screen="23" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Mission 6</h1>
+          <span class="icon-camera"></span>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/7-mission-5.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 24: MISSION 6 ASSIGNMENT ==================== -->
+  <section class="screen" data-screen="24" data-type="assignment">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 6</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Assignment</p>
+        <p class="card-text">Look straight at the stairwell</p>
+        <p class="card-text" style="margin-top: var(--space-md);">Which is the largest name that stands out from all the rest?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 25: MISSION 6 TASK ==================== -->
+  <section class="screen" data-screen="25" data-type="task" data-mission="6">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 6</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Mission Task</p>
+        <p class="card-text">Who is the Intruder?</p>
+        <input type="text" class="input-field" data-answer="6" placeholder="Last Name" autocomplete="off">
+        <button class="btn btn--submit" data-submit="6">Submit Report</button>
+        <p class="feedback" data-feedback="6"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 26: MISSION 6 COMPLETE (FINAL) ==================== -->
+  <section class="screen" data-screen="26" data-type="confirmation" data-mission="6">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission 6</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+      <p style="color: var(--text-primary); font-family: var(--font-heading); font-size: 18px; text-align: center; letter-spacing: 3px; text-transform: uppercase; z-index: 2; position: relative;">
+        Intruder Captured
       </p>
+      <div class="video-container" style="z-index: 2; position: relative;">
+        <video playsinline preload="none" src="videos/8-finale.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
     </div>
     <canvas class="matrix-canvas"></canvas>
   </section>

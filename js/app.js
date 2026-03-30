@@ -3,8 +3,9 @@
  * Manages screen transitions, button states, and game flow.
  */
 (() => {
-  const TOTAL_SCREENS = 23; // screens 0-22
-  const TASK_SCREENS = [5, 9, 13, 17, 21]; // screens that require answer validation
+  const TOTAL_SCREENS = 27; // screens 0-26
+  const TASK_SCREENS = [5, 9, 13, 17, 21, 25]; // screens that require answer validation
+  const LAST_SCREEN = TOTAL_SCREENS - 1;
 
   let currentScreen = 0;
   const completedMissions = new Set();
@@ -16,11 +17,12 @@
   function init() {
     Video.initOverlays();
     DragDrop.init();
+    initDecodePuzzle();
 
     btnBack.addEventListener('click', goBack);
     btnNext.addEventListener('click', goNext);
 
-    // Submit buttons
+    // Submit buttons (missions 1-5)
     document.querySelectorAll('[data-submit]').forEach(btn => {
       btn.addEventListener('click', () => {
         const mission = parseInt(btn.dataset.submit);
@@ -42,6 +44,57 @@
     updateNav();
   }
 
+  // --- Decode puzzle (Mission 5) ---
+  function initDecodePuzzle() {
+    const boxes = document.querySelectorAll('.location-box');
+    const feedback = document.getElementById('puzzle-feedback');
+    if (!boxes.length) return;
+
+    boxes.forEach((box, i) => {
+      box.addEventListener('input', () => {
+        box.value = box.value.toUpperCase();
+        if (box.value && i < boxes.length - 1) {
+          boxes[i + 1].focus();
+        }
+        checkDecode(boxes, feedback);
+      });
+
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !box.value && i > 0) {
+          boxes[i - 1].focus();
+          boxes[i - 1].value = '';
+          e.preventDefault();
+        }
+      });
+    });
+  }
+
+  function checkDecode(boxes, feedback) {
+    const attempt = Array.from(boxes).map(b => b.value.toUpperCase()).join('');
+    if (attempt.length < Answers.DECODE_ANSWER.length) {
+      feedback.textContent = '';
+      feedback.className = 'puzzle-feedback';
+      return;
+    }
+
+    if (Answers.validate(5)) {
+      completedMissions.add(5);
+      feedback.textContent = 'Location decoded!';
+      feedback.className = 'puzzle-feedback feedback--success';
+      boxes.forEach(b => b.classList.add('correct'));
+      updateNav();
+      btnNext.classList.add('glow-pulse');
+    } else {
+      feedback.textContent = 'Incorrect. Try again, Agent.';
+      feedback.className = 'puzzle-feedback feedback--error';
+      boxes.forEach(b => {
+        b.classList.add('error');
+        setTimeout(() => b.classList.remove('error'), 400);
+      });
+    }
+  }
+
+  // --- Navigation ---
   function goToScreen(n) {
     if (n < 0 || n >= TOTAL_SCREENS) return;
 
@@ -49,7 +102,7 @@
     const nextScreen = screens[n];
 
     // Leave current screen
-    Video.pauseOnScreen(prevScreen);
+    Video.leaveScreen(prevScreen);
     stopMatrixOnScreen(prevScreen);
 
     prevScreen.classList.remove('active');
@@ -60,14 +113,23 @@
     // Enter new screen
     const type = nextScreen.dataset.type;
     if (type === 'video') {
-      Video.playOnScreen(nextScreen);
+      Video.enterScreen(nextScreen);
     } else if (type === 'confirmation') {
       startMatrixOnScreen(nextScreen);
+      // Handle video on confirmation screen (finale)
+      const overlay = nextScreen.querySelector('.video-overlay');
+      if (overlay) overlay.classList.remove('hidden');
+      const vid = nextScreen.querySelector('video');
+      if (vid) vid.load();
+    } else if (type === 'task' && nextScreen.dataset.mission === '5') {
+      // Focus first empty decode box
+      setTimeout(() => {
+        const firstEmpty = nextScreen.querySelector('.location-box:not(.correct)');
+        if (firstEmpty) firstEmpty.focus();
+      }, 300);
     }
 
     updateNav();
-
-    // Scroll to top of new screen
     nextScreen.scrollTop = 0;
   }
 
@@ -78,6 +140,10 @@
   }
 
   function goNext() {
+    if (currentScreen === LAST_SCREEN) {
+      window.location.href = 'index.html';
+      return;
+    }
     if (currentScreen < TOTAL_SCREENS - 1 && isNextAllowed()) {
       goToScreen(currentScreen + 1);
     }
@@ -87,7 +153,6 @@
     const screen = screens[currentScreen];
     const mission = parseInt(screen.dataset.mission);
 
-    // Task screens require completed mission
     if (TASK_SCREENS.includes(currentScreen)) {
       return completedMissions.has(mission);
     }
@@ -104,27 +169,22 @@
         feedbackEl.textContent = 'Correct! Report accepted.';
         feedbackEl.className = 'feedback feedback--success';
       }
-      // Flash the card
       const screen = screens[currentScreen];
       const card = screen.querySelector('.card');
       if (card) card.classList.add('success');
 
       updateNav();
-
-      // Enable NEXT with a glow
       btnNext.classList.add('glow-pulse');
     } else {
       if (feedbackEl) {
         feedbackEl.textContent = 'Incorrect. Try again, Agent.';
         feedbackEl.className = 'feedback feedback--error';
       }
-      // Shake the input(s)
       const screen = screens[currentScreen];
       screen.querySelectorAll('.input-field').forEach(input => {
         input.classList.add('error');
         setTimeout(() => input.classList.remove('error'), 400);
       });
-      // Shake drag list if mission 3
       if (mission === 3) {
         const dragList = document.getElementById('drag-list');
         if (dragList) {
@@ -137,17 +197,16 @@
 
   function updateNav() {
     // Back button
-    if (currentScreen === 0) {
-      btnBack.style.display = 'none';
-    } else {
-      btnBack.style.display = '';
-    }
+    btnBack.style.display = currentScreen === 0 ? 'none' : '';
 
-    // Next button
-    const isLast = currentScreen === TOTAL_SCREENS - 1;
-    if (isLast) {
-      btnNext.style.display = 'none';
+    // Next / Ohana HQ button
+    if (currentScreen === LAST_SCREEN) {
+      btnNext.style.display = '';
+      btnNext.textContent = 'Ohana HQ';
+      btnNext.disabled = false;
+      btnNext.classList.add('glow-pulse');
     } else {
+      btnNext.textContent = 'Next';
       btnNext.style.display = '';
       const allowed = isNextAllowed();
       btnNext.disabled = !allowed;
