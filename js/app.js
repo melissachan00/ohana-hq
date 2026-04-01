@@ -3,8 +3,9 @@
  * Manages screen transitions, button states, and game flow.
  */
 (() => {
-  const TOTAL_SCREENS = 27; // screens 0-26
-  const TASK_SCREENS = [5, 9, 13, 17, 21, 25]; // screens that require answer validation
+  const TOTAL_SCREENS = 28; // screens 0-27
+  const MISSION_SELECT_SCREEN = 3;
+  const TASK_SCREENS = [6, 10, 14, 18, 22, 26]; // screens that require answer validation
   const LAST_SCREEN = TOTAL_SCREENS - 1;
 
   let currentScreen = 0;
@@ -41,7 +42,20 @@
       });
     });
 
+    // Mission select buttons
+    const btnHQ = document.getElementById('btn-hq-intruder');
+    const btnBuzzer = document.getElementById('btn-missing-buzzer');
+    if (btnHQ) btnHQ.addEventListener('click', () => goToScreen(MISSION_SELECT_SCREEN + 1));
+    if (btnBuzzer) btnBuzzer.addEventListener('click', () => { window.location.href = 'golden-buzzer.html'; });
+
     updateNav();
+
+    // Debug: jump to screen via URL param
+    const debugScreen = new URLSearchParams(window.location.search).get('screen');
+    if (debugScreen !== null) {
+      for (let m = 1; m <= 6; m++) completedMissions.add(m);
+      goToScreen(parseInt(debugScreen));
+    }
   }
 
   // --- Decode puzzle (Mission 5) ---
@@ -141,7 +155,7 @@
 
   function goNext() {
     if (currentScreen === LAST_SCREEN) {
-      window.location.href = 'index.html';
+      window.location.reload();
       return;
     }
     if (currentScreen < TOTAL_SCREENS - 1 && isNextAllowed()) {
@@ -198,6 +212,12 @@
   function updateNav() {
     // Back button
     btnBack.style.display = currentScreen === 0 ? 'none' : '';
+
+    // Hide Next on mission select (mission buttons handle navigation)
+    if (currentScreen === MISSION_SELECT_SCREEN) {
+      btnNext.style.display = 'none';
+      return;
+    }
 
     // Next / Ohana HQ button
     if (currentScreen === LAST_SCREEN) {

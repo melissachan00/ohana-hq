@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>OHANA HQ — Golden Buzzer</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ==================== SCREEN 0: INTRO VIDEO ==================== -->
+  <section class="screen active" data-screen="0" data-type="video">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <div class="screen-title-row">
+          <h1 class="screen-title">Missing Golden Buzzer</h1>
+        </div>
+      </div>
+      <div class="video-container">
+        <video playsinline preload="none" src="videos/golden-buzzer-intro.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 1: STATUS — ALL BLANKS ==================== -->
+  <section class="screen" data-screen="1" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Solve This Puzzle</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 2: CLUE 1 NARRATION ==================== -->
+  <section class="screen" data-screen="2" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 1</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">The thief hid the first clue in plain sight. We've tracked their path to a landmark downtown.<br><br>Find the US Bank building and look carefully to its left. What building do you see?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 3: CLUE 1 TASK ==================== -->
+  <section class="screen" data-screen="3" data-type="task" data-clue="1">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 1</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Describe the Building</p>
+        <p class="card-text">What is the shape and color of the building to the left of US Bank?</p>
+        <select class="input-field" data-answer="shape">
+          <option value="" disabled selected>Shape</option>
+          <option value="cube">Cube</option>
+          <option value="cylinder">Cylinder</option>
+          <option value="pyramid">Pyramid</option>
+          <option value="sphere">Sphere</option>
+          <option value="rectangle">Rectangle</option>
+        </select>
+        <select class="input-field" data-answer="color" style="margin-top:12px;">
+          <option value="" disabled selected>Color</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="silver">Silver</option>
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+        </select>
+        <button class="btn btn--submit" data-submit="1">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="1"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 4: STATUS — AFTER CLUE 1 ==================== -->
+  <section class="screen" data-screen="4" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Solve This Puzzle</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 5: CLUE 2 NARRATION ==================== -->
+  <section class="screen" data-screen="5" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 2</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">Find the Bay Bridge, the bridge closest to the Warriors stadium.<br><br>The clue says, "Count Carefully — Towers Above, Lanes Below."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 6: CLUE 2 TASK ==================== -->
+  <section class="screen" data-screen="6" data-type="task" data-clue="2">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 2</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Count the Bay Bridge</p>
+        <p class="card-text">How many towers does the Bay Bridge have?</p>
+        <input type="text" class="input-field" data-answer="towers" inputmode="numeric" autocomplete="off" placeholder="Towers">
+        <p class="card-text" style="margin-top:12px;">How many car lanes go into San Francisco?</p>
+        <input type="text" class="input-field" data-answer="lanes" inputmode="numeric" autocomplete="off" placeholder="Car Lanes">
+        <button class="btn btn--submit" data-submit="2">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="2"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 7: STATUS — AFTER CLUE 2 ==================== -->
+  <section class="screen" data-screen="7" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Solve This Puzzle</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 8: CLUE 3 NARRATION ==================== -->
+  <section class="screen" data-screen="8" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 3</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">The next clue reads: "Find a famous building that sits on 3 sides — shaped like a pyramid."<br><br>Look closely at the tallest floor. How many windows do you count on the side facing us?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 9: CLUE 3 TASK ==================== -->
+  <section class="screen" data-screen="9" data-type="task" data-clue="3">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 3</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Count the Windows</p>
+        <p class="card-text">Look closely at the tallest floor. How many windows do you count on one side?</p>
+        <input type="text" class="input-field" data-answer="windows" inputmode="numeric" autocomplete="off" placeholder="Windows">
+        <button class="btn btn--submit" data-submit="3">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="3"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 10: STATUS — AFTER CLUE 3 ==================== -->
+  <section class="screen" data-screen="10" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Solve This Puzzle</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 11: CLUE 4 NARRATION ==================== -->
+  <section class="screen" data-screen="11" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 4</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">Look for the Golden Gate Bridge, then look for the red road to the left.<br><br>You'll find a white sign on top of a building. Figure out the missing word.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 12: CLUE 4 TASK ==================== -->
+  <section class="screen" data-screen="12" data-type="task" data-clue="4">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 4</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Missing Word</p>
+        <p class="card-text">What is the missing word on the white building sign?</p>
+        <input type="text" class="input-field" data-answer="palace" autocomplete="off" placeholder="THE ______">
+        <p class="letter-count" id="letter-count" style="font-size:14px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:4px;min-height:20px;"></p>
+        <button class="btn btn--submit" data-submit="4">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="4"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 13: STATUS — AFTER CLUE 4 ==================== -->
+  <section class="screen" data-screen="13" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Solve This Puzzle</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 14: CLUE 5 NARRATION ==================== -->
+  <section class="screen" data-screen="14" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 5</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">The code is coming together. Now we need to figure out where the buzzer is hidden.<br><br>Find the sign near the elevator telling us the floor number.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 15: CLUE 5 TASK ==================== -->
+  <section class="screen" data-screen="15" data-type="task" data-clue="5">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 5</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Floor Number</p>
+        <p class="card-text">What floor are we on? Add the two digits of the floor number together.</p>
+        <input type="text" class="input-field" data-answer="floor" inputmode="numeric" autocomplete="off" placeholder="Number">
+        <button class="btn btn--submit" data-submit="5">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="5"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 16: CLUE 6 NARRATION ==================== -->
+  <section class="screen" data-screen="16" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 6</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">On the opposite side from the ocean, find the bridge from the bus terminal to the Salesforce Park.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 17: CLUE 6 TASK ==================== -->
+  <section class="screen" data-screen="17" data-type="task" data-clue="6">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 6</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Count the Cables</p>
+        <p class="card-text">How many cables are holding up the bridge? Then add 1.</p>
+        <input type="text" class="input-field" data-answer="cables" inputmode="numeric" autocomplete="off" placeholder="Number">
+        <button class="btn btn--submit" data-submit="6">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="6"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 18: CLUE 7 NARRATION ==================== -->
+  <section class="screen" data-screen="18" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 7</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">Find the Golden Gate Bridge in the distance.<br><br>Now look at the top of the hill to the left of the bridge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 19: CLUE 7 TASK ==================== -->
+  <section class="screen" data-screen="19" data-type="task" data-clue="7">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 7</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Count the Towers</p>
+        <p class="card-text">How many towers are at the top of the hill near the bridge?</p>
+        <input type="text" class="input-field" data-answer="towers-gg" inputmode="numeric" autocomplete="off" placeholder="Number">
+        <button class="btn btn--submit" data-submit="7">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="7"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 20: CLUE 8 NARRATION ==================== -->
+  <section class="screen" data-screen="20" data-type="narration">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 8</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Location</p>
+        <p class="card-text">Almost there. One last number to decode.<br><br>Find the bathroom and look at the mosaic on the wall.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 21: CLUE 8 TASK ==================== -->
+  <section class="screen" data-screen="21" data-type="task" data-clue="8">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Clue 8</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Count the People</p>
+        <p class="card-text">How many people are on the mosaic?</p>
+        <input type="text" class="input-field" data-answer="mosaic" inputmode="numeric" autocomplete="off" placeholder="Number">
+        <button class="btn btn--submit" data-submit="8">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="8"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 22: DECODE — NUMBER TO LETTER ==================== -->
+  <section class="screen" data-screen="22" data-type="task" data-clue="10">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Decode</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Decode the Animal</p>
+        <p class="card-text">Use the chart below to convert each number into a letter.</p>
+        <div style="display:flex;justify-content:center;gap:16px;margin:16px 0;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <input type="text" class="location-box decode-box" maxlength="1" autocomplete="off" style="width:40px;height:48px;">
+            <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-dark);">7</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <input type="text" class="location-box decode-box" maxlength="1" autocomplete="off" style="width:40px;height:48px;">
+            <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-dark);">15</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <input type="text" class="location-box decode-box" maxlength="1" autocomplete="off" style="width:40px;height:48px;">
+            <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-dark);">1</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <input type="text" class="location-box decode-box" maxlength="1" autocomplete="off" style="width:40px;height:48px;">
+            <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-dark);">20</span>
+          </div>
+        </div>
+        <table style="width:100%;max-width:300px;border-collapse:collapse;margin:16px 0 12px;font-family:var(--font-heading);font-size:12px;text-align:center;">
+          <tr style="background:#1e2a3a;">
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">A</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">B</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">C</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">D</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">E</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">F</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">G</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">H</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">I</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">J</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">K</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">L</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">M</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">1</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">2</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">3</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">4</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">5</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">6</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">7</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">8</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">9</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">10</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">11</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">12</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">13</td>
+          </tr>
+          <tr style="background:#1e2a3a;">
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">N</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">O</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">P</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">Q</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">R</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">S</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">T</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">U</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">V</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">W</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">X</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">Y</td>
+            <td style="border:1px solid #555;padding:4px;font-weight:700;color:#fff;">Z</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">14</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">15</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">16</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">17</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">18</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">19</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">20</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">21</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">22</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">23</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">24</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">25</td>
+            <td style="border:1px solid #999;padding:4px;font-weight:700;color:#1e2a3a;">26</td>
+          </tr>
+        </table>
+        <button class="btn btn--submit" data-submit="10">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="10"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 23: GOLDEN BUZZER LOCATION (FULLY REVEALED) ==================== -->
+  <section class="screen" data-screen="23" data-type="status">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Golden Buzzer Location</h1>
+      </div>
+      <div class="card">
+        <p class="card-text">You are looking for a <strong style="color:#C8960C;">BLACK CYLINDER</strong> that will be unlocked with this code: <strong style="color:#C8960C;">4 5 8 6</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong style="color:#C8960C;">GOAT</strong> is looking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 24: FINAL CLUE ==================== -->
+  <section class="screen" data-screen="24" data-type="task" data-clue="9">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Final Clue</h1>
+      </div>
+      <div class="card">
+        <p class="card-label">Find the Container</p>
+        <p class="card-text">You found the black cylinder and unlocked it with the code! Inside there's a note. What does it say?</p>
+        <input type="text" class="input-field" data-answer="note" autocomplete="off" placeholder="">
+        <button class="btn btn--submit" data-submit="9">Submit Report</button>
+      </div>
+      <p class="feedback" data-feedback="9"></p>
+    </div>
+  </section>
+
+  <!-- ==================== SCREEN 25: MISSION COMPLETED ==================== -->
+  <section class="screen" data-screen="25" data-type="confirmation">
+    <div class="screen-content">
+      <div class="screen-header">
+        <img src="assets/logo.png" alt="OHANA" class="header-logo">
+        <h1 class="screen-title">Mission</h1>
+      </div>
+      <h2 class="mission-complete-text">Mission Complete</h2>
+      <div class="video-container" style="z-index: 2; position: relative;">
+        <video playsinline preload="none" src="videos/golden-buzzer-end.mp4"></video>
+        <div class="video-overlay">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+    </div>
+    <canvas class="matrix-canvas"></canvas>
+  </section>
+
+  <!-- NAV BAR -->
+  <nav class="nav-bar">
+    <button id="btn-back" class="btn btn--nav" style="display:none">Back</button>
+    <button id="btn-next" class="btn btn--nav btn--full">Next</button>
+  </nav>
+
+</div>
+
+<script src="js/matrix.js"></script>
+<script src="js/video.js"></script>
+<script src="js/golden-buzzer.js"></script>
+</body>
+</html>

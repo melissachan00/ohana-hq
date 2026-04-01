@@ -197,6 +197,18 @@
   animation: shake 0.4s ease;
 }
 
+.input-label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-align: left;
+  width: 100%;
+}
+
 /* Dual input row (Mission 4) */
 .dual-input {
   width: 100%;
