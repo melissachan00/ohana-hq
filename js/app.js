@@ -155,7 +155,7 @@
 
   function goNext() {
     if (currentScreen === LAST_SCREEN) {
-      window.location.reload();
+      window.location.href = 'golden-buzzer.html';
       return;
     }
     if (currentScreen < TOTAL_SCREENS - 1 && isNextAllowed()) {
@@ -222,7 +222,7 @@
     // Next / Ohana HQ button
     if (currentScreen === LAST_SCREEN) {
       btnNext.style.display = '';
-      btnNext.textContent = 'Ohana HQ';
+      btnNext.textContent = 'Next Mission';
       btnNext.disabled = false;
       btnNext.classList.add('glow-pulse');
     } else {
