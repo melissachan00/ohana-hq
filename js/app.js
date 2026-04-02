@@ -50,9 +50,10 @@
 
     updateNav();
 
-    // Debug: jump to screen via URL param
-    const debugScreen = new URLSearchParams(window.location.search).get('screen');
-    if (debugScreen !== null) {
+    // Debug: jump to screen via ?screen=N or #N
+    const debugScreen = new URLSearchParams(window.location.search).get('screen')
+      || (window.location.hash && window.location.hash.slice(1));
+    if (debugScreen) {
       for (let m = 1; m <= 6; m++) completedMissions.add(m);
       goToScreen(parseInt(debugScreen));
     }
