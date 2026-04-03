@@ -32,25 +32,25 @@
 
   const ANSWERS = {
     1: async () => {
-      const shape = getVal('shape');
-      const color = getVal('color');
-      const sOk = await Hash.checkAsync(shape, H.a1);
-      const cOk = await Hash.checkAsync(color, H.a2);
-      return sOk && cOk;
+      const a = getVal('c1a');
+      const b = getVal('c1b');
+      const aOk = await Hash.checkAsync(a, H.a1);
+      const bOk = await Hash.checkAsync(b, H.a2);
+      return aOk && bOk;
     },
     2: async () => {
-      const t = await Hash.checkAsync(getVal('towers'), H.a3);
-      const l = await Hash.checkAsync(getVal('lanes'), H.a4);
+      const t = await Hash.checkAsync(getVal('c2a'), H.a3);
+      const l = await Hash.checkAsync(getVal('c2b'), H.a4);
       return t && l;
     },
-    3: async () => Hash.checkAsync(getVal('windows'), H.a5),
+    3: async () => Hash.checkAsync(getVal('c3'), H.a5),
     4: async () => Hash.checkAsync(getVal('c4').replace(/\s/g, ''), H.a6),
-    5: async () => Hash.checkAsync(getVal('floor'), H.a7),
-    6: async () => Hash.checkAsync(getVal('cables'), H.a8),
-    7: async () => Hash.checkAsync(getVal('towers-gg'), H.a9),
-    8: async () => Hash.checkAsync(getVal('mosaic'), H.a10),
+    5: async () => Hash.checkAsync(getVal('c5'), H.a7),
+    6: async () => Hash.checkAsync(getVal('c6'), H.a8),
+    7: async () => Hash.checkAsync(getVal('c7'), H.a9),
+    8: async () => Hash.checkAsync(getVal('c8'), H.a10),
     9: async () => {
-      const note = getVal('note');
+      const note = getVal('c9');
       const a = await Hash.checkAsync(note.replace(/\s/g, ''), H.a11);
       const b = await Hash.checkAsync(note, H.a12);
       return a || b;
