@@ -209,7 +209,8 @@
       </div>
       <div class="card">
         <p class="card-label">Find the Location</p>
-        <p class="card-text">Look for the Golden Gate Bridge, then look for the red road to the left.<br><br>You'll find a white sign on top of a building. Figure out the missing word.</p>
+        <p class="card-text" style="text-wrap:balance;text-align:center;">Look for the window with a view of these buildings.</p>
+        <img src="assets/clue4-view.png" alt="View from window" style="width:100%;max-width:340px;border-radius:8px;margin-top:12px;">
       </div>
     </div>
   </section>
@@ -223,8 +224,9 @@
       </div>
       <div class="card">
         <p class="card-label">Find the Missing Word</p>
-        <p class="card-text">What is the missing word on the white building sign?</p>
-        <input type="text" class="input-field" data-answer="palace" autocomplete="off" placeholder="THE ______">
+        <p class="card-text" style="text-wrap:balance;text-align:center;">Look for a building with a white sign on the rooftop.</p>
+        <p class="card-text" style="margin-bottom:4px;">"The ______"</p>
+        <input type="text" class="input-field" data-answer="c4" autocomplete="off">
         <p class="letter-count" id="letter-count" style="font-size:14px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:4px;min-height:20px;"></p>
         <button class="btn btn--submit" data-submit="4">Submit Report</button>
       </div>
@@ -286,7 +288,7 @@
       </div>
       <div class="card">
         <p class="card-label">Find the Location</p>
-        <p class="card-text">On the opposite side from the ocean, find the bridge from the bus terminal to the Salesforce Park.</p>
+        <p class="card-text" style="text-wrap:balance;text-align:center;">Find the window where Einstein is pointing, then look down.<br><br>Find the bridge from the bus terminal to Salesforce Park.</p>
       </div>
     </div>
   </section>
@@ -317,7 +319,7 @@
       </div>
       <div class="card">
         <p class="card-label">Find the Location</p>
-        <p class="card-text">Find the Golden Gate Bridge in the distance.<br><br>Now look at the top of the hill to the left of the bridge.</p>
+        <p class="card-text" style="text-wrap:balance;text-align:center;">Look past the Golden Gate Bridge to the hills on the left.<br><br>Find the tallest hill.</p>
       </div>
     </div>
   </section>
@@ -331,7 +333,7 @@
       </div>
       <div class="card">
         <p class="card-label">Count the Towers</p>
-        <p class="card-text">How many towers are at the top of the hill near the bridge?</p>
+        <p class="card-text" style="text-wrap:balance;text-align:center;">How many forked towers do you see on the hill?</p>
         <input type="text" class="input-field" data-answer="towers-gg" inputmode="numeric" autocomplete="off" placeholder="Number">
         <button class="btn btn--submit" data-submit="7">Submit Report</button>
       </div>
@@ -474,8 +476,8 @@
         <h1 class="screen-title">Golden Buzzer Location</h1>
       </div>
       <div class="card">
-        <p class="card-text">You are looking for a <strong style="color:#C8960C;">BLACK CYLINDER</strong> that will be unlocked with this code: <strong style="color:#C8960C;">4 5 8 6</strong>.</p>
-        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong style="color:#C8960C;">GOAT</strong> is looking.</p>
+        <p class="card-text">You are looking for a <strong class="reveal" data-reveal="object">______ _____</strong> that will be unlocked with this code: <strong class="reveal" data-reveal="c1">___</strong> <strong class="reveal" data-reveal="c2">___</strong> <strong class="reveal" data-reveal="c3">___</strong> <strong class="reveal" data-reveal="c4">___</strong>.</p>
+        <p class="card-text" style="margin-top:12px;">To find it, you need to look in the greenery where the <strong class="reveal" data-reveal="animal">_____</strong> is looking.</p>
       </div>
     </div>
   </section>
@@ -525,6 +527,7 @@
 
 <script src="js/matrix.js"></script>
 <script src="js/video.js"></script>
-<script src="js/golden-buzzer.js?v=2"></script>
+<script src="js/hash.js"></script>
+<script src="js/golden-buzzer.js?v=4"></script>
 </body>
 </html>

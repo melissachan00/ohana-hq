@@ -84,15 +84,15 @@
     });
   }
 
-  function checkDecode(boxes, feedback) {
+  async function checkDecode(boxes, feedback) {
     const attempt = Array.from(boxes).map(b => b.value.toUpperCase()).join('');
-    if (attempt.length < Answers.DECODE_ANSWER.length) {
+    if (attempt.length < Answers.DECODE_LENGTH) {
       feedback.textContent = '';
       feedback.className = 'puzzle-feedback';
       return;
     }
 
-    if (Answers.validate(5)) {
+    if (await Answers.validate(5)) {
       completedMissions.add(5);
       feedback.textContent = 'Location decoded!';
       feedback.className = 'puzzle-feedback feedback--success';
@@ -175,10 +175,10 @@
     return true;
   }
 
-  function handleSubmit(mission) {
+  async function handleSubmit(mission) {
     const feedbackEl = document.querySelector(`[data-feedback="${mission}"]`);
 
-    if (Answers.validate(mission)) {
+    if (await Answers.validate(mission)) {
       completedMissions.add(mission);
       if (feedbackEl) {
         feedbackEl.textContent = 'Correct! Report accepted.';
